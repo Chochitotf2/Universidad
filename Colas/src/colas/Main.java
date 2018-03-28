@@ -7,7 +7,7 @@ package colas;
 
 /**
  *
- * @author PotatoPower
+ * @author
  */
 public class Main {
 

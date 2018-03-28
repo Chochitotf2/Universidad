@@ -7,7 +7,7 @@ package colas;
 
 /**
  *
- * @author PotatoPower
+ * @author 
  * @param <T>
  */
 public class Nodo <T>{
