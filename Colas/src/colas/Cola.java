@@ -21,11 +21,11 @@ public class Cola <T>{
         }
     }
     
-    private Nodo agregar(Nodo nodo){
-        if (nodo.getSiguiente() == null) {
-            return nodo;
+    private Nodo agregar(Nodo primero){
+        if (primero.getSiguiente() == null) {
+            return primero;
         }else{
-            return agregar(nodo.getSiguiente());
+            return agregar(primero.getSiguiente());
         }
     }
     
@@ -46,16 +46,16 @@ public class Cola <T>{
         }
     }
     
-    private Nodo insertar(int cont, int pos, Nodo nodo){
-        if (nodo.getSiguiente() != null){
+    private Nodo insertar(int cont, int pos, Nodo primero){
+        if (primero.getSiguiente() != null){
             if (cont == pos) {
-                return nodo;
+                return primero;
             }else{
                 cont++;
-                return insertar(cont, pos, nodo.getSiguiente());
+                return insertar(cont, pos, primero.getSiguiente());
             }
         }else{
-            return nodo;
+            return primero;
         }            
     }
     
@@ -72,15 +72,15 @@ public class Cola <T>{
         }        
     }
     
-    private Nodo borrar(T dato, Nodo nodo){
-        if (nodo.getSiguiente() != null) {
-            if (dato == nodo.getSiguiente().getDato()) {
-                return nodo;
+    private Nodo borrar(T dato, Nodo primero){
+        if (primero.getSiguiente() != null) {
+            if (dato == primero.getSiguiente().getDato()) {
+                return primero;
             }else{
-                return borrar(dato,nodo.getSiguiente());
+                return borrar(dato,primero.getSiguiente());
             } 
         }else{
-            return nodo;
+            return primero;
         }
                        
     }
@@ -93,11 +93,11 @@ public class Cola <T>{
         }
     }
     
-    private int tamaño(Nodo nodo){
-        if (nodo.getSiguiente() == null) {
+    private int tamaño(Nodo primero){
+        if (primero.getSiguiente() == null) {
             return 1;
         }else{
-            return 1 + tamaño(nodo.getSiguiente());
+            return 1 + tamaño(primero.getSiguiente());
         }
     }
     
@@ -108,11 +108,11 @@ public class Cola <T>{
             return "[ "+recorrer(primero);
         }
     }
-    private String recorrer(Nodo nodo){
-        if (nodo.getSiguiente() == null) {
-            return nodo.getDato()+" ]";
+    private String recorrer(Nodo primero){
+        if (primero.getSiguiente() == null) {
+            return primero.getDato()+" ]";
         }else{
-            return nodo.getDato()+" , "+recorrer(nodo.getSiguiente());
+            return primero.getDato()+" , "+recorrer(primero.getSiguiente());
         }
     }
 }
