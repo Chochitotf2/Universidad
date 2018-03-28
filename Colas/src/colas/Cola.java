@@ -11,13 +11,13 @@ package colas;
  * @param <T>
  */
 public class Cola <T>{
-    private Nodo nodo;
+    private Nodo primero;
         
     public void agregar(T dato){
-        if (!(nodo == null)) {
-            agregar(nodo).setSiguiente(dato);
+        if (!(primero == null)) {
+            agregar(primero).setSiguiente(dato);
         }else{
-            nodo = new Nodo(dato);
+            primero = new Nodo(dato);
         }
     }
     
@@ -32,14 +32,14 @@ public class Cola <T>{
     public void insertar(int pos, T dato){
         if (pos == 0) {
             Nodo aux = new Nodo(dato);
-            aux.setSiguienteObj(nodo);
-            nodo = aux;
+            aux.setSiguienteObj(primero);
+            primero = aux;
         }else{
             if (pos <= tamaño()) {
-                Nodo aux = insertar(1, pos, nodo);
+                Nodo aux = insertar(1, pos, primero);
                 Nodo item = new Nodo(dato);
                 item.setSiguienteObj(aux.getSiguiente());
-                insertar(1, pos, nodo).setSiguienteObj(item);
+                insertar(1, pos, primero).setSiguienteObj(item);
             }else{
                 System.out.println("La posición no existe");
             }
@@ -60,14 +60,14 @@ public class Cola <T>{
     }
     
     public void borrar(T dato){
-        if (dato == nodo.getDato()) {
-            nodo = nodo.getSiguiente();
+        if (dato == primero.getDato()) {
+            primero = primero.getSiguiente();
         }else{
-            Nodo aux = borrar(dato,nodo);
+            Nodo aux = borrar(dato,primero);
             if (aux.getSiguiente() != null) {
-                borrar(dato,nodo).setSiguienteObj(aux.getSiguiente().getSiguiente());
+                borrar(dato,primero).setSiguienteObj(aux.getSiguiente().getSiguiente());
             }else{
-                borrar(dato,nodo).setSiguienteObj(null);
+                borrar(dato,primero).setSiguienteObj(null);
             }            
         }        
     }
@@ -86,10 +86,10 @@ public class Cola <T>{
     }
     
     public int tamaño(){
-        if (nodo == null) {
+        if (primero == null) {
             return 0;
         }else{
-            return tamaño(nodo);
+            return tamaño(primero);
         }
     }
     
@@ -102,10 +102,10 @@ public class Cola <T>{
     }
     
     public String recorrer(){
-        if (nodo == null) {
+        if (primero == null) {
             return "Sin elementos";
         }else{
-            return "[ "+recorrer(nodo);
+            return "[ "+recorrer(primero);
         }
     }
     private String recorrer(Nodo nodo){
