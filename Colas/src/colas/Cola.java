@@ -15,31 +15,31 @@ public class Cola <T>{
         
     public void agregar(T dato){
         if (!(nodo == null)) {
-            agregar(nodo).setNext(dato);
+            agregar(nodo).setSiguiente(dato);
         }else{
             nodo = new Nodo(dato);
         }
     }
     
     private Nodo agregar(Nodo nodo){
-        if (nodo.getNext() == null) {
+        if (nodo.getSiguiente() == null) {
             return nodo;
         }else{
-            return agregar(nodo.getNext());
+            return agregar(nodo.getSiguiente());
         }
     }
     
     public void insertar(int pos, T dato){
         if (pos == 0) {
             Nodo aux = new Nodo(dato);
-            aux.setNextObj(nodo);
+            aux.setSiguienteObj(nodo);
             nodo = aux;
         }else{
             if (pos <= tamaño()) {
                 Nodo aux = insertar(1, pos, nodo);
                 Nodo item = new Nodo(dato);
-                item.setNextObj(aux.getNext());
-                insertar(1, pos, nodo).setNextObj(item);
+                item.setSiguienteObj(aux.getSiguiente());
+                insertar(1, pos, nodo).setSiguienteObj(item);
             }else{
                 System.out.println("La posición no existe");
             }
@@ -47,12 +47,12 @@ public class Cola <T>{
     }
     
     private Nodo insertar(int cont, int pos, Nodo nodo){
-        if (nodo.getNext() != null){
+        if (nodo.getSiguiente() != null){
             if (cont == pos) {
                 return nodo;
             }else{
                 cont++;
-                return insertar(cont, pos, nodo.getNext());
+                return insertar(cont, pos, nodo.getSiguiente());
             }
         }else{
             return nodo;
@@ -60,24 +60,24 @@ public class Cola <T>{
     }
     
     public void borrar(T dato){
-        if (dato == nodo.getData()) {
-            nodo = nodo.getNext();
+        if (dato == nodo.getDato()) {
+            nodo = nodo.getSiguiente();
         }else{
             Nodo aux = borrar(dato,nodo);
-            if (aux.getNext() != null) {
-                borrar(dato,nodo).setNextObj(aux.getNext().getNext());
+            if (aux.getSiguiente() != null) {
+                borrar(dato,nodo).setSiguienteObj(aux.getSiguiente().getSiguiente());
             }else{
-                borrar(dato,nodo).setNextObj(null);
+                borrar(dato,nodo).setSiguienteObj(null);
             }            
         }        
     }
     
     private Nodo borrar(T dato, Nodo nodo){
-        if (nodo.getNext() != null) {
-            if (dato == nodo.getNext().getData()) {
+        if (nodo.getSiguiente() != null) {
+            if (dato == nodo.getSiguiente().getDato()) {
                 return nodo;
             }else{
-                return borrar(dato,nodo.getNext());
+                return borrar(dato,nodo.getSiguiente());
             } 
         }else{
             return nodo;
@@ -94,10 +94,10 @@ public class Cola <T>{
     }
     
     private int tamaño(Nodo nodo){
-        if (nodo.getNext() == null) {
+        if (nodo.getSiguiente() == null) {
             return 1;
         }else{
-            return 1 + tamaño(nodo.getNext());
+            return 1 + tamaño(nodo.getSiguiente());
         }
     }
     
@@ -109,10 +109,10 @@ public class Cola <T>{
         }
     }
     private String recorrer(Nodo nodo){
-        if (nodo.getNext() == null) {
-            return nodo.getData()+" ]";
+        if (nodo.getSiguiente() == null) {
+            return nodo.getDato()+" ]";
         }else{
-            return nodo.getData()+" , "+recorrer(nodo.getNext());
+            return nodo.getDato()+" , "+recorrer(nodo.getSiguiente());
         }
     }
 }

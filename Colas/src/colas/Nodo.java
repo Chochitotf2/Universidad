@@ -12,25 +12,25 @@ package colas;
  */
 public class Nodo <T>{
     private T dato;
-    private Nodo next;
+    private Nodo siguiente;
     
     public Nodo(T dato){
         this.dato = dato;
     }
     
-    public void setNext(T dato){
-        next = new Nodo(dato);
+    public void setSiguiente(T dato){
+        siguiente = new Nodo(dato);
     }
     
-    public void setNextObj(Nodo next){
-        this.next = next;
+    public void setSiguienteObj(Nodo next){
+        this.siguiente = next;
     }
     
-    public Nodo getNext(){
-        return next;
+    public Nodo getSiguiente(){
+        return siguiente;
     }
     
-    public T getData(){
+    public T getDato(){
         return dato;
     }
 }
