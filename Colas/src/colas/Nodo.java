@@ -22,8 +22,8 @@ public class Nodo <T>{
         siguiente = new Nodo(dato);
     }
     
-    public void setSiguienteObj(Nodo next){
-        this.siguiente = next;
+    public void setSiguienteObj(Nodo siguiente){
+        this.siguiente = siguiente;
     }
     
     public Nodo getSiguiente(){
