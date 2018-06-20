@@ -22,11 +22,18 @@ public class ReadToUrl {
      * @param args the command line arguments
      */
     public static void main(String[] args) {
-        String http_url = "http://copernicorp.com/persona.json";
+        String http_url = "http://copernicorp.com/doc.json";
         URL url;
         try {
             url = new URL(http_url);
             HttpURLConnection con = (HttpURLConnection) url.openConnection();
+            con.setRequestMethod("GET");
+            con.setRequestProperty("Content-Type", "application/json");
+            System.out.println("Atributos:\n"
+                    + "Tamaño del contenido: "+con.getContentLength()+"\n"
+                            + "Código/Estado: "+con.getResponseCode()+"/"+con.getResponseMessage()+"\n"
+                                    + "Tipo del contenido: "+con.getContentType()+"\n\n");
+            
             print_content(con);
         } catch (MalformedURLException e) {
             e.printStackTrace();
