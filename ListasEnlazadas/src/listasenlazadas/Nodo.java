@@ -21,5 +21,7 @@ public class Nodo<T> {
 
     public Nodo(T info) {
         this.info = info;
-    }    
+    }
+
+    public Nodo() { }   
 }
