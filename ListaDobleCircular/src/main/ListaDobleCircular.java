@@ -137,8 +137,11 @@ public class ListaDobleCircular<T> {
                 if (size() > 1) {
                     aux.getPrev().setNext(aux.getNext());
                     aux.getNext().setPrev(aux.getPrev());
-                }else
+                    System.out.println("Elemento eliminado.");
+                }else{
                     nodo = null;
+                    System.out.println("Elemento eliminado.");
+                }                    
             }else
                 System.out.println("Dato no encontrado.");  
         }
@@ -154,8 +157,11 @@ public class ListaDobleCircular<T> {
                 if (size() > 1) {
                     aux.getPrev().setNext(aux.getNext());
                     aux.getNext().setPrev(aux.getPrev());
-                }else
+                    System.out.println("Elemento eliminado.");
+                }else{
+                    System.out.println("Elemento eliminado.");
                     nodo = null;
+                }                    
             }else
                 System.out.println("Dato no encontrado."); 
         }
